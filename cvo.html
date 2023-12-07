@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CVO Music Player</title>
+  <style>
+    /* Styling for the button and input field */
+    button, input {
+      padding: 8px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    /* Container for iframes */
+    .iframe-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px; /* Space between iframes */
+    }
+    /* Individual iframe style */
+    iframe {
+      width: calc(25% - 10px); /* Adjusted width for 4 iframes in a row with a gap of 10px */
+      height: 315px;
+      margin: 0;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <input type="number" id="endTimeInput" placeholder="End time (seconds)" value="30" />
+  <button onclick="setEndTimes()">Set End Time</button>
+  <button onclick="shuffleIframes()">Shuffle Songs</button>
+  <button onclick="downloadTitles()">Download Song List</button>
+</div>
+
+ <!-- Add more iframe elements for each genre here (the order matters!)-->
+<div class="iframe-container">
+    <!-- HIP HOP: -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/V3jjH-_LVG4?si=cYKwT9YBxkEf4jx9&amp;start=45" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/qTLIeLCLNk8?si=K_Y4vQ4KHG0-n1wh&amp;start=55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/woJeTDvdOgM?si=wQqFeKjkrsnQsi5E&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dYZY0N6IV7M?si=lGmqytMots84RGnF&amp;start=69" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <!-- CLASSIC: -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/CpMIsPfjK-Y?start=338" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4rgSzQwe5DQ?si=jPez3xRA-iSM4mXF&amp;start=69" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Rb0UmrCXxVA?si=2HfpTOEGCUmJGrWv&amp;start=1912" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/5cZvgfeN4rk?si=syyUdvqpZpW4zeuK&amp;start=2216" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <!-- ROCK: -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/mi0gw3iG1rE?si=SclPHwOwh1YU14q7&amp;start=30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/mi0gw3iG1rE?si=SclPHwOwh1YU14q7&amp;start=30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/mi0gw3iG1rE?si=SclPHwOwh1YU14q7&amp;start=30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/mi0gw3iG1rE?si=SclPHwOwh1YU14q7&amp;start=30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <!-- JAZZ: -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-fP-5Rd6Cqg?si=tFPXg38pMDwpCYiT&amp;start=7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-fP-5Rd6Cqg?si=tFPXg38pMDwpCYiT&amp;start=7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-fP-5Rd6Cqg?si=tFPXg38pMDwpCYiT&amp;start=7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-fP-5Rd6Cqg?si=tFPXg38pMDwpCYiT&amp;start=7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <!-- COUNTRY: -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/lQoBlKCR-RA?si=wSGc0svLm8kEIN7F&amp;start=32" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/lQoBlKCR-RA?si=wSGc0svLm8kEIN7F&amp;start=32" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/lQoBlKCR-RA?si=wSGc0svLm8kEIN7F&amp;start=32" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/lQoBlKCR-RA?si=wSGc0svLm8kEIN7F&amp;start=32" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<script>
+var genres = ['HIP HOP', 'HIP HOP', 'HIP HOP', 'HIP HOP', 
+              'CLASSIC', 'CLASSIC', 'CLASSIC', 'CLASSIC',
+              'ROCK','ROCK','ROCK','ROCK',
+              'JAZZ', 'JAZZ', 'JAZZ', 'JAZZ', 
+              'COUNTRY', 'COUNTRY', 'COUNTRY', 'COUNTRY'];
+
+function setEndTimes() {
+  var endTime = document.getElementById('endTimeInput').value;
+  var iframes = document.querySelectorAll('.iframe-container iframe');
+
+  iframes.forEach(function(iframe) {
+    var url = new URL(iframe.src);
+    var startTime = parseInt(url.searchParams.get('start'));
+    var endTimeValue = parseInt(endTime);
+    
+    if (!isNaN(endTimeValue)) {
+      var calculatedEndTime = startTime + endTimeValue;
+      url.searchParams.set('end', calculatedEndTime);
+      iframe.src = url.href;
+    }
+  });
+}
+
+async function shuffleIframes() {
+  var iframes = document.querySelectorAll('.iframe-container iframe');
+  var iframeArray = Array.from(iframes);
+
+  saveToFile.blobParts = [];
+
+  // Fisher-Yates shuffle algorithm
+  for (var i = iframeArray.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = iframeArray[i];
+    iframeArray[i] = iframeArray[j];
+    iframeArray[j] = temp;
+
+    // Shuffle genres in the same way
+    var tempGenre = genres[i];
+    genres[i] = genres[j];
+    genres[j] = tempGenre;
+  }
+
+  // Reorder iframes in the document
+  var parent = document.querySelector('.iframe-container');
+  for (const [index, iframe] of iframeArray.entries()) {
+    parent.appendChild(iframe);
+    await fetchTitle(iframe, index + 1);
+  }
+}
+
+async function fetchTitle(iframe, index) {
+  try {
+    const response = await fetch(`https://noembed.com/embed?url=${iframe.src}`);
+    const data = await response.json();
+    song_str = `[${genres[index-1]}] - Song ${index}: ${data.title}`;
+    console.log(song_str);
+    saveToFile(song_str); // Save fetched title to local file
+  } catch (error) {
+    console.error('Error fetching title:', error);
+  }
+}
+
+// Function to save titles to a local file
+function saveToFile(title) {
+  if (!saveToFile.blobParts) {
+    saveToFile.blobParts = [];
+  }
+
+  const blob = new Blob([title + '\n'], { type: 'text/plain' });
+  saveToFile.blobParts.push(blob);
+}
+
+// Function to trigger file download
+function downloadTitles() {
+  const blob = new Blob(saveToFile.blobParts, { type: 'text/plain' });
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const timestamp = new Date().toLocaleString().replace(/[\/.,]/g, '-').replace(/ /g, '_').replace(/:/g, '-');
+  const fileName = `song_list_${timestamp}.txt`;
+  a.download = fileName;
+  a.click();
+  window.URL.revokeObjectURL(url);
+}
+
+
+window.onload = async function() {
+  setEndTimes();
+  var iframes = document.querySelectorAll('.iframe-container iframe');
+  for (const [index, iframe] of Array.from(iframes).entries()) {
+    await fetchTitle(iframe, index + 1);
+  }
+  
+};
+</script>
+
+</body>
+</html>
